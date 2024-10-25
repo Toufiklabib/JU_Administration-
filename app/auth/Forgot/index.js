@@ -4,13 +4,15 @@ import { Colors } from '@/constants/Colors';
 
 import { TouchableOpacity } from 'react-native';
 import { useNavigation, useRouter } from 'expo-router';
+import auth from '../../../Firebase/Firebase.init';
+import { sendPasswordResetEmail } from 'firebase/auth';
 const Forgot = () => {
 
 
-    const [email,setEmail]= useState(null);
-    const [password,setPassword]= useState(null);
+   
+    const [password,setPassword]= useState();
     const [loading, setLoading] = useState(false);
-    const [user,setUser] = useState(null);
+    const [email, setEmail] = useState();
     const navigation = useNavigation();
     const router = useRouter();
 
@@ -19,6 +21,20 @@ const Forgot = () => {
           headerShown : false
         })
     },[])
+
+    const handelResetemail = () =>{
+        setLoading(true);
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+            setLoading(false);
+        })
+        .catch((error) => {
+          
+          const errorMessage = error.message;
+           console.log(errorMessage);
+           setLoading(false);
+        });
+    }
 
   return (
     <View style={{padding:30,marginTop:60,
@@ -63,7 +79,7 @@ const Forgot = () => {
        </View>
   
        <TouchableOpacity
-      
+       onPress={handelResetemail}
        style={{
         padding:18,
         backgroundColor:Colors.BLACK,

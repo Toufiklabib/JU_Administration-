@@ -29,7 +29,10 @@ const SignIn = () => {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        router.replace('/home');
+        console.log(user);
         setLoading(false);
+      
       })
       .catch((error) => {
         const errorCode = error.code;

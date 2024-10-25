@@ -16,10 +16,7 @@ export default function Index() {
 
 
    
-
-   {user? <>
-   <Redirect  href={'/home'} />
-   </> :<>  <LandingPage /> </>} 
+ {user ? <Redirect href={'/home'} /> : <LandingPage />}
     
 
     </View>

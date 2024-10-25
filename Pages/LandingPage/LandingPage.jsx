@@ -1,10 +1,17 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import { useRouter } from 'expo-router'
+import React, { useEffect } from 'react'
+import { useNavigation, useRouter } from 'expo-router'
 import { Colors } from '@/constants/Colors';
 const LandingPage = () => {
 
     const router = useRouter();
+    const navigation = useNavigation();
+    useEffect(()=>{
+      navigation.setOptions({
+        headerShown : false
+      })
+  },[])
+
   return (
     <View>
     <Image
