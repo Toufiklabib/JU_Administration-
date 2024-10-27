@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect } from 'react';
 import { useNavigation } from 'expo-router';
+import Header from '../../Components/Home/Header';
+import Slider from '../../Components/Home/Slider';
+import Category from '../../Components/Home/Category';
 
 const Home = () => {
 
@@ -13,7 +16,19 @@ const Home = () => {
   },[])
   return (
     <View>
-      <Text>home</Text>
+     
+     {/* header */}
+   <Header></Header>
+
+     {/* slider */}
+
+    <Slider/>
+
+     {/* catrgory */}
+    <Category/>
+     
+
+    
     </View>
   )
 }

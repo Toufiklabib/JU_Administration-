@@ -3,10 +3,11 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { Colors } from '../../constants/Colors';
 const _layout = () => {
   return (
-    <Tabs screenOption={{headerShown:false,tabBarActiveTintColor:Colors.WHITE}}>
+    <Tabs screenOption={{headerShown:false, tabBarActiveTintColor:Colors.WHITE}}>
       
       <Tabs.Screen name="home" 
         options={{
@@ -20,6 +21,12 @@ const _layout = () => {
          options={{
           tabBarLabel:"Transection",
          tabBarIcon:({color})=><FontAwesome6 name="money-check-dollar" size={40} color={color} />
+        }}
+         />
+         <Tabs.Screen name="notification" 
+         options={{
+          tabBarLabel:"Notification",
+         tabBarIcon:({color})=><Ionicons name="notifications" size={40} color={color}/>
         }}
          />
         
